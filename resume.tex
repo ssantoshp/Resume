@@ -1,0 +1,191 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{color}
+\usepackage{hyperref}
+
+\hypersetup{breaklinks=true,%
+pagecolor=white,%
+colorlinks=true,%
+linkcolor=cyan,%
+urlcolor=MyDarkBlue}
+
+\definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactgray}{\small#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{\tabin}
+      \setlength{\rightmargin}{\tabin}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large#1}
+  \lineunder
+  \begin{tabbedsection}{\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2][]{
+  \textbf{#2} \hfill {\footnotesize #1} \hspace{2em}
+  \begin{tabbedsection}{0.5\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{-}
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Start Document     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{resume_header}
+\name{Santosh Passoubady}
+\program{12th-grade student -- Math and Physic Specialization}
+\contact{ssantoshpassoubady.web.app \hspace{2cm} santoshpassoubady@gmail.com \hspace{2cm} GitHub: github.com/ssantoshp}
+\end{resume_header}
+
+\begin{resume_section}{About Me}
+  \begin{nospacetabbing}
+
+  \textbf{Technical Skills}  \= C/C++, Python, HTML/CSS, JS, Office (Excel), Figma, Adobe XD, Zeplin, Firebase\\*
+  \textbf{Languages} \> French, English, Conversational Proficiency in Tamil and German\\*
+  \textbf{Interests} \> Judo, Finance, Space, Statistics, Entertainment\\*
+  \end{nospacetabbing}
+
+\end{resume_section}
+
+\begin{resume_section}{Work Experience}
+  
+  \begin{resume_employer}{Optic 2000, Beaune France, Le Groupe Optic 2000}{Internship, sales}{Beaune, Burgundy}{April 2018}
+    \item Assisted store employees who were in different positions
+    \item Provided great customer service and helped salespersons demonstrate products to the customers
+    \item Sorted administrative files more efficiently while maintaining a clean workplace
+    \item Gained confidence, sales skills, and experience through this internship
+  \end{resume_employer}
+\end{resume_section}
+
+
+\begin{resume_section}{Competitions and Personal Projects}
+  \begin{resume_subsection}[(Mars 2020 - Present)]{Empyrial}
+  \begin{subitems}
+    \item Built an open-source framework for financial analysis and portfolio management
+    \item 67k+ downloads
+    \item Collaborated with 6 other people from all over the world (China, U.S.A, Brazil...) on this project
+    \item Used by Georgetown University and ENSAE Paris, the best statistics school in France
+    \item Stats: 470+ upvotes on Reddit, 435+ stars on Github, and more than 24k views on Medium
+    \end{subitems}
+  \end{resume_subsection}
+
+
+  \begin{resume_subsection}[(August 2020)]{Campus}
+  \begin{subitems}
+    \item Problem: Students could not hear what professors were saying because we were too much in the same classroom
+    \item Built a website that allows students from my high school to share class notes so everyone could get access to the materials seen in class
+    \item Used by 60\% of students from my school
+    \end{subitems}
+  \end{resume_subsection}
+
+
+
+  \begin{resume_subsection}[(March 2020)]{Finance}
+    \begin{subitems}
+        \item Wrote a Python program using Efficient frontier to allocate capital in my stock portfolio. Achieved a 19\% return in 6 months
+        \item Built Quantclean, the first data cleaning library for financial datasets (around 2k downloads)
+        \item Contributed to QuantConnect by creating Wizardry, a CLI for building algorithmic strategies
+    \end{subitems}
+  \end{resume_subsection}
+  
+  \begin{resume_subsection}[(September 2008 - Present)]{Judo}
+    \begin{subitems}
+    \item Ranked 9th during the 2018 french judo championship in -60 kg
+    \item Obtained black belt by winning 5 matches in a row
+    \item 40 hours of volunteering to collect donations and help organize events with my club
+    \end{subitems}
+  \end{resume_subsection}
+
+  \begin{resume_subsection}[(2021  - Present)]{Leadership}
+    \begin{subitems}
+    \item Elected as a class representative
+    \item Elected by majority vote (64\%) as the President of the student council
+    \item Twice participated in a national eloquence contest
+    \end{subitems}
+  \end{resume_subsection}
+
+\begin{resume_section}{Education}
+  \begin{resume_subsection}[Beaune, Burgundy (2011 - Present)]{Lycée Saint Coeur}
+    \begin{subitems}
+      \item Specialization Maths and Physics/Chemistry
+      \item Cumulative average: 17.56/20
+    \end{subitems}
+  \end{resume_subsection}
+  
+ \begin{resume_subsection}[(2019 - Present)]{Dual Diploma}
+  \begin{subitems}
+      \item Enrolled in a three-year program that allows me to obtain a recognized American high school diploma
+      \item 2 times honor roll
+      \item Current GPA: 4.00
+   \end{subitems}
+    
+  \end{resume_subsection}
+  
+  
+\end{resume_section}
+
+\end{document}
